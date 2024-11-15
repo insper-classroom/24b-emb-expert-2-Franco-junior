@@ -17,6 +17,8 @@ add_library(freertos_config INTERFACE)
 target_include_directories(freertos_config SYSTEM
     INTERFACE
     ${CMAKE_CURRENT_LIST_DIR}/freertos  # Path to FreeRTOSConfig.h
+    ${CMAKE_CURRENT_LIST_DIR}/freertos/FreeRTOS-Kernel/include
+    ${CMAKE_CURRENT_LIST_DIR}/freertos/FreeRTOS-Kernel/portable/GCC/ARM_CM0
 )
 
 
@@ -34,7 +36,7 @@ add_compile_options(
   -Wall -Wno-format # int != int32_t as far as the compiler is concerned because
                     # gcc has int32_t as long int
   -Wno-unused-function # we have some for the docs that aren't called
-  
+  -DprojCOVERAGE_TEST=0 # Add coverage test definition here instead of freertos_config
 )
 
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")

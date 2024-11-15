@@ -15,7 +15,6 @@
 #include "hardware/dma.h"
 
 QueueHandle_t xQueue;
-int dma_channel;
     
 void Task_ReadADC(void *pvParameters);
 void Task_UpdateOLED(void *pvParameters);
@@ -58,7 +57,7 @@ void Task_UpdateOLED(void *pvParameters) {
 }
 
 void ssd1306_put_page_dma(uint8_t *data, size_t length) {
-    dma_channel = dma_claim_unused_channel(true);
+    int dma_channel = dma_claim_unused_channel(true);
 
     dma_channel_config config = dma_channel_get_default_config(dma_channel);
     channel_config_set_transfer_data_size(&config, DMA_SIZE_8);
