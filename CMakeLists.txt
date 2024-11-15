@@ -30,4 +30,6 @@ if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
 endif()
 
 # Codes subdir:
+add_subdirectory(oled1_lib)
+add_subdirectory(freertos)
 add_subdirectory(main)
