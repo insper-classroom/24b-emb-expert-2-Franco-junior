@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.12)
 
+set(FREERTOS_PORT GCC_ARM_CM0 CACHE STRING "")
+
+
 # Pull in SDK (must be before project)
 include(pico_sdk_import.cmake)
 
@@ -8,6 +11,14 @@ include(pico_extras_import_optional.cmake)
 project(pico_emb C CXX ASM)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
+
+# Define freertos_config target
+add_library(freertos_config INTERFACE)
+target_include_directories(freertos_config SYSTEM
+    INTERFACE
+    ${CMAKE_CURRENT_LIST_DIR}/freertos  # Path to FreeRTOSConfig.h
+)
+
 
 if(PICO_SDK_VERSION_STRING VERSION_LESS "1.3.0")
   message(
@@ -23,6 +34,7 @@ add_compile_options(
   -Wall -Wno-format # int != int32_t as far as the compiler is concerned because
                     # gcc has int32_t as long int
   -Wno-unused-function # we have some for the docs that aren't called
+  
 )
 
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
@@ -31,5 +43,5 @@ endif()
 
 # Codes subdir:
 add_subdirectory(oled1_lib)
-add_subdirectory(freertos)
+add_subdirectory(freertos/FreeRTOS-Kernel)
 add_subdirectory(main)
