@@ -63,6 +63,7 @@
 #define configUSE_NEWLIB_REENTRANT 0
 #define configENABLE_BACKWARD_COMPATIBILITY 0
 #define configNUM_THREAD_LOCAL_STORAGE_POINTERS 5
+#define configENABLE_MPU 0
 
 /* System */
 #define configSTACK_DEPTH_TYPE uint32_t
@@ -103,11 +104,11 @@
 
 #if FREE_RTOS_KERNEL_SMP // set by the RP2040 SMP port of FreeRTOS
 /* SMP port only */
-#define configNUMBER_OF_CORES 1
+#define configNUMBER_OF_CORES 2
 #define configUSE_PASSIVE_IDLE_HOOK 0
 #define configTICK_CORE 0
 #define configRUN_MULTIPLE_PRIORITIES 1
-#define configUSE_CORE_AFFINITY 0
+#define configUSE_CORE_AFFINITY 1
 #endif
 
 /* RP2040 specific */

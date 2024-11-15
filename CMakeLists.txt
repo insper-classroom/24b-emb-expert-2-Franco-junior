@@ -19,6 +19,7 @@ target_include_directories(freertos_config SYSTEM
     ${CMAKE_CURRENT_LIST_DIR}/freertos  # Path to FreeRTOSConfig.h
     ${CMAKE_CURRENT_LIST_DIR}/freertos/FreeRTOS-Kernel/include
     ${CMAKE_CURRENT_LIST_DIR}/freertos/FreeRTOS-Kernel/portable/GCC/ARM_CM0
+    ${CMAKE_CURRENT_LIST_DIR}/freertos/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040/include
 )
 
 
