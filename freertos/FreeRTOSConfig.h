@@ -63,7 +63,6 @@
 #define configUSE_NEWLIB_REENTRANT 0
 #define configENABLE_BACKWARD_COMPATIBILITY 0
 #define configNUM_THREAD_LOCAL_STORAGE_POINTERS 5
-#define configENABLE_MPU 0
 
 /* System */
 #define configSTACK_DEPTH_TYPE uint32_t

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.12)
 
 set(FREERTOS_PORT GCC_ARM_CM0 CACHE STRING "")
+set(FREERTOS_HEAP 4)
 
 
 # Pull in SDK (must be before project)
